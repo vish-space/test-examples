@@ -1,0 +1,35 @@
+---
+service: api-services
+    
+custom:
+    CUSTOMER_BUCKET: storage-bucket
+    
+params:
+    test:
+        s3-deployment-bucket: web-api-serverless-testing
+    
+plugins:
+    - serverless-iam-roles-per-function
+    - serverless-plugin-conditional-functions
+    
+provider:
+    name: aws
+    runtime: nodejs20.x
+    stage: ${opt:stage, 'dev'}
+    region: ${opt:region}
+    deploymentBucket:
+        name: ${param:s3-deployment-bucket}
+    environment:
+        AWS_CONFIG_REGION: ${self:provider.region}
+        DYNAMODB_TABLE:
+            'Fn::ImportValue': '${opt:stage}-DynamoDBTable'
+    apiGateway:
+        binaryMediaTypes:
+            - 'image/png'
+    
+    iamManagedPolicies:
+        - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"    
+resources:
+    - ${file(./yaml/ResourceCF-CustomPermission.yml)}
+
+    

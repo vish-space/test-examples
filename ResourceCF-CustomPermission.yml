@@ -1,0 +1,9 @@
+---
+Resources:
+  CustomFunctionInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: CustomLambdaFunction
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: arn:aws:execute-api:us-east-1:12345678909:abcdgths67/*
