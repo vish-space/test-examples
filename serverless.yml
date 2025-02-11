@@ -30,6 +30,6 @@ provider:
     iamManagedPolicies:
         - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"    
 resources:
-    - ${file(./yaml/ResourceCF-CustomPermission.yml)}
+    - ${file(./ResourceCF-CustomPermission.yml)}
 
     
