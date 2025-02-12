@@ -1,7 +1,7 @@
 Alerts:
     handler: alerts/handler.getAlert
     environment:
-      ALERT_BUCKET: 
+      ALERT_BUCKET: ${self:custom.ALERT_BUCKET}
     events:
       - http:
           method: GET
