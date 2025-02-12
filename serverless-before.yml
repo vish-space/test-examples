@@ -41,12 +41,12 @@ resources:
                 SourceArn: arn:aws:execute-api:us-east-1:12345678909:abcdgths67/*
 functions:
     Alert:
-    handler: alerts/handler.getAlert
-    environment:
-      ALERT_BUCKET: ${self:custom.ALERT_BUCKET}
-    events:
-      - http:
-          method: GET
-          path: /alerts/latest
-          cors: true
-          private: true
+        handler: alerts/handler.getAlert
+        environment:
+          ALERT_BUCKET: ${self:custom.ALERT_BUCKET}
+        events:
+          - http:
+              method: GET
+              path: /alerts/latest
+              cors: true
+              private: true
