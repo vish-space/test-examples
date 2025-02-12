@@ -31,5 +31,8 @@ provider:
         - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"    
 resources:
     - ${file(./ResourceCF-CustomPermission.yml)}
+functions:
+    - ${file(./Alerts.yml)}
+
 
     
