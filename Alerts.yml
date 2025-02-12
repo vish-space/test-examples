@@ -1,0 +1,10 @@
+Alerts:
+    handler: alerts/handler.getAlert
+    environment:
+      ALERT_BUCKET: 
+    events:
+      - http:
+          method: GET
+          path: /alerts/latest
+          cors: true
+          private: true
