@@ -40,7 +40,7 @@ resources:
                 Principal: apigateway.amazonaws.com
                 SourceArn: arn:aws:execute-api:us-east-1:12345678909:abcdgths67/*
 functions:
-    Alert:
+    Alerts:
         handler: alerts/handler.getAlert
         environment:
           ALERT_BUCKET: ${self:custom.ALERT_BUCKET}
