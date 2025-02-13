@@ -3,6 +3,7 @@ service: api-services
     
 custom:
     CUSTOMER_BUCKET: storage-bucket
+     ALERT_BUCKET: storage-alerts
     
 params:
     test:
